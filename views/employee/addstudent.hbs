@@ -1,0 +1,103 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/employee" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{employee._id}}">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control input-sm"  name="fullName" placeholder="Full Name" value="{{employee.fullName}}">
+        <div class="text-danger">
+            {{employee.fullNameError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email" placeholder="Email" value="{{employee.email}}">
+        <div class="text-danger">
+            {{employee.emailError}}</div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Mobile</label>
+            <input type="text" class="form-control" name="mobile" placeholder="Mobile" value="{{employee.mobile}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>City</label>
+            <input type="text" class="form-control" name="city" placeholder="City" value="{{employee.city}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Semester</label>
+            <input type="text" class="form-control" name="semester" placeholder="Semester" value="{{employee.semester}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Subject</label>
+            <input type="text" class="form-control" name="subject" placeholder="Subject" value="{{employee.subject}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Minor 1 </label>
+            <input type="text" class="form-control"  id="minor1" name="minor1" placeholder="minor1" value="{{employee.minor1}}">
+        </div><div class="form-group col-md-6">
+            <label>Minor 2</label>
+            <input type="text" class="form-control"  id="minor2" name="minor2" placeholder="minor2" value="{{employee.minor2}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Assignment</label>
+            <input type="text" class="form-control"  id="ass" name="ass" placeholder="assignment" value="{{employee.ass}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>External Marks</label>
+            <input type="text" class="form-control" onfocusout="myFunction()" id="esa" name="esa" placeholder="ESA" value="{{employee.esa}}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Total Marks</label>
+            <input type="text" class="form-control"  id="total" name="total" placeholder="Total" readonly>
+
+        </div>
+        <script>
+            function g() {
+                var p1 = parseInt(document.getElementById("minor1").value);
+                var p2 = parseInt(document.getElementById("minor2").value);
+                var p3 = parseInt(document.getElementById("ass").value);
+                var p4 = parseInt(document.getElementById("esa").value);
+                
+                var re = p1 + p2 + p3 + p4;
+
+            
+                if (document.getElementById("total").value >=90)
+                document.getElementById("grade").value = "Grade A+";
+                else
+                if (document.getElementById("total").value >=80 && document.getElementById("total").value <90)
+                {
+                document.getElementById("grade").value = "Grade A";
+                }
+                else
+                if (document.getElementById("total").value >=70 && document.getElementById("total").value <80)
+                {
+                document.getElementById("grade").value = "Grade B+";
+                }
+                else
+                if (document.getElementById("total").value >=60 && document.getElementById("total").value <70)
+                {
+                document.getElementById("grade").value = "Grade B";
+                }
+                else
+                document.getElementById("grade").value = "Grade C";
+                }
+
+                }
+           
+            
+            }
+        </script>
+        <input type="text" class="form-control" id="grade" name="grade" placeholder="grade" >
+            
+        <script>
+            function myFunction() {
+           document.getElementById("total").value = parseInt(document.getElementById("minor1").value) + parseInt(document.getElementById("minor2").value)  + parseInt(document.getElementById("ass").value) + parseInt(document.getElementById("esa").value);
+           g(); }
+        </script>
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/employee/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>

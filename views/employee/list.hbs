@@ -1,0 +1,54 @@
+
+<body>
+
+
+<h2><a class="btn btn-secondary" href="/employee"><i class="fa fa-plus"></i> Create New</a> CLASSROOM - MD-217</h2> 
+
+<script>
+    function g(){
+        
+            var v ;
+                if( {{this.total}} > 60 ){
+                    v = "pass"
+                }
+                else {
+                    v = "fail"
+                }
+                return v ;
+    }
+</script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>USN</th>
+            <th>SEMESTER</th>
+            <th>YEAR</th>
+            <th>Bench</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.usn}}</td>
+            <td>{{this.semester}}</td>
+            <td>{{this.year}}</td>
+            <td>{{this.bench}}</td>
+           
+
+
+            <td>
+                <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+    
+</body>

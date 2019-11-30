@@ -1,0 +1,15 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/semester" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{semester._id}}">
+    <div class="form-group">
+        <label>Number</label>
+        <input type="text" class="form-control input-sm"  name="name" placeholder="Number" value="{{semester.name}}">
+       
+    </div>
+   
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+    
+    </div>
+</form>
